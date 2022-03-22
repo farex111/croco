@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { fullUsers } from './users.model';
 
@@ -9,11 +8,11 @@ import { fullUsers } from './users.model';
 export class UserService {
   constructor(private http: HttpClient) {}
   getUsers() {
-    const URL = `${environment.URL}/users`;
+    const URL = `https://jsonplaceholder.typicode.com/users`;
     return this.http.get(URL);
   }
   getUserByID(id: number) {
-    const URL = `${environment.URL}/users/${id}`;
+    const URL = `https://jsonplaceholder.typicode.com/users/${id}`;
     return this.http.get<fullUsers>(URL);
   }
 }
